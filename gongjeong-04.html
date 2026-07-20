@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ2MYKK22Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CJ2MYKK22Q');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>숫자는 뜨겁고, 시장은 식었다 — 공정한 시선 4호</title>
+<meta name="description" content="工程의 눈으로 읽는 반도체 위클리 4호. TSMC 사상 최대 분기, ASML 어닝서프라이즈 — 그런데 SOX는 약세장 진입.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="숫자는 뜨겁고, 시장은 식었다 — 공정한 시선 4호">
+<meta property="og:description" content="TSMC 사상 최대 분기·ASML 서프라이즈 vs SOX 약세장 진입, SKHY 롤러코스터 — 工程의 눈으로 읽는 반도체 위클리.">
+<meta property="og:image" content="https://fablens.github.io/weekly/img/og-default.jpg">
+<meta property="og:url" content="https://fablens.github.io/weekly/gongjeong-04.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --navy:#152B47; --navy-deep:#0D1D33; --ink:#1C2430; --body:#3A4453;
+  --muted:#7A8494; --line:#E3E7EC; --paper:#FFFFFF; --bg:#F4F6F8;
+  --accent:#C0502D; --accent-soft:#FBF1EC;
+  --policy:#2E6B3A; --policy-soft:#EDF5EF; --policy-line:#BBD6C2;
+  --blue:#2E75B6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','Segoe UI',sans-serif;
+  background:var(--bg); color:var(--body); line-height:1.75; font-size:16.5px;
+  -webkit-font-smoothing:antialiased; word-break:keep-all;}
+
+#gauge{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--policy));z-index:100;transition:width .1s linear}
+
+.hero{background:linear-gradient(rgba(13,29,51,.82), rgba(13,29,51,.92)), url('img/hero.jpg') center/cover no-repeat var(--navy-deep);
+  color:#fff; padding:0 24px;}
+.hero-inner{max-width:760px;margin:0 auto;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:72px 0 56px}
+.kicker{display:flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.16em;color:#9FB2C9;font-weight:600}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.22;font-weight:800;letter-spacing:-0.02em;margin:26px 0 22px;color:#fff}
+.hero h1 .em{color:#F0A583}
+.hero .deck{font-size:clamp(16px,2.2vw,19px);color:#C3CFDE;line-height:1.8;max-width:620px}
+.hero .meta{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:#8FA3BC}
+.hero .meta b{color:#D8E2EE;font-weight:600}
+.scrollcue{margin-top:40px;font-size:12px;letter-spacing:.2em;color:#7E93AC;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+section.block{padding:72px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-num{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--accent)}
+.sec-num.green{color:var(--policy)}
+.sec-title{font-size:clamp(22px,3.4vw,28px);font-weight:800;color:var(--ink);letter-spacing:-0.01em}
+.sec-desc{font-size:14px;color:var(--muted);margin-bottom:34px}
+
+.three{background:var(--paper);border-top:3px solid var(--accent)}
+.three-item{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.three-item:last-child{border-bottom:none}
+.three-num{font-size:40px;font-weight:800;color:var(--line);line-height:1;padding-top:4px}
+.three-item.reveal-in .three-num{color:var(--accent)}
+.three-txt{font-size:clamp(17px,2.4vw,20px);font-weight:700;color:var(--ink);line-height:1.6}
+.three-txt small{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:6px}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:34px 34px 28px;margin-bottom:26px;box-shadow:0 1px 2px rgba(16,32,54,.04)}
+.card .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 12px;margin-bottom:14px}
+.card h3{font-size:clamp(19px,2.8vw,23px);font-weight:800;color:var(--ink);line-height:1.45;letter-spacing:-0.01em;margin-bottom:6px}
+.card .takeaway{font-size:15.5px;font-weight:700;color:var(--accent);margin-bottom:16px}
+.card .takeaway.green{color:var(--policy)}
+.card p.facts{font-size:15.5px;color:var(--body);margin-bottom:18px}
+.callout{border-radius:10px;padding:18px 20px;font-size:15.5px;line-height:1.75}
+.callout .lab{font-weight:800;margin-right:6px}
+.callout.biz{background:var(--accent-soft);border-left:4px solid var(--accent)}
+.callout.biz .lab{color:var(--accent)}
+.callout.policy{background:var(--policy-soft);border-left:4px solid var(--policy)}
+.callout.policy .lab{color:var(--policy)}
+.src{font-size:12.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #B9CFE4}
+.lastweek{display:inline-block;font-size:11px;font-weight:700;color:var(--blue);border:1px solid #C9DCEE;background:#F2F7FC;border-radius:99px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+
+.pull{padding:64px 0}
+.pull blockquote{font-size:clamp(24px,4vw,34px);font-weight:800;line-height:1.5;color:var(--ink);letter-spacing:-0.015em;text-align:center}
+.pull blockquote span{background:linear-gradient(transparent 62%, #F6DACD 62%)}
+.pull .who{text-align:center;font-size:13px;color:var(--muted);margin-top:16px;letter-spacing:.06em}
+
+.radar-band{background:linear-gradient(180deg,#F7FAF7 0%,var(--bg) 100%);border-top:1px solid var(--policy-line);border-bottom:1px solid var(--policy-line)}
+.radar-head{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.scope{width:88px;height:88px;border-radius:50%;position:relative;flex:none;
+  background:radial-gradient(circle,#F2F8F3 0%,#E2EFE5 100%);border:2px solid var(--policy-line);overflow:hidden}
+.scope::before{content:'';position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg, rgba(46,107,58,.55), transparent 70deg);animation:sweep 3.4s linear infinite}
+.scope::after{content:'';position:absolute;inset:18px;border-radius:50%;border:1px dashed var(--policy-line)}
+.scope .blip{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--policy);opacity:.85}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.radar-band .sec-desc{margin-bottom:0;max-width:520px}
+
+.paper-card{border-left:5px solid var(--navy)}
+.timeline{display:flex;align-items:center;gap:0;margin:22px 0 6px;flex-wrap:wrap}
+.tl-node{text-align:center;flex:1;min-width:110px;position:relative;padding:0 4px}
+.tl-node .yr{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+.tl-node .lb{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:2px}
+.tl-node .st{font-size:11.5px;color:var(--muted)}
+.tl-node::before{content:'';display:block;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--navy);margin:0 auto 8px}
+.tl-node.now::before{background:var(--accent);border-color:var(--accent)}
+.tl-bar{height:2px;background:var(--line);flex:0.6;min-width:24px;margin-bottom:52px}
+
+.ticker li{list-style:none;display:grid;grid-template-columns:110px 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.ticker li b{color:var(--ink);font-size:13.5px;letter-spacing:.04em;padding-top:2px}
+
+.fabnote{background:linear-gradient(135deg,#1C2E48 0%,#0D1D33 100%);color:#C9D5E4;border-radius:16px;padding:34px 34px 30px;margin-bottom:26px}
+.fabnote .fn-lab{font-size:11.5px;font-weight:800;letter-spacing:.18em;color:#F0A583}
+.fabnote h3{color:#fff;font-size:clamp(18px,2.6vw,22px);font-weight:800;margin:12px 0 14px;line-height:1.5}
+.fabnote p{font-size:15px;line-height:1.85}
+.fabnote .fn-tail{margin-top:14px;font-size:12.5px;color:#8FA3BC;font-style:italic}
+.fabnote .fn-img{width:calc(100% + 68px);max-width:none;margin:-34px -34px 24px;border-radius:16px 16px 0 0;display:block}
+@media (max-width:640px){.fabnote .fn-img{width:calc(100% + 40px);margin:-26px -20px 18px;border-radius:12px 12px 0 0}}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metric{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 18px}
+.metric .m-lab{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.metric .m-val{font-size:clamp(22px,3.4vw,30px);font-weight:800;color:var(--ink);margin:6px 0 2px}
+.metric .m-val.up{color:var(--accent)}
+.metric .m-val.down{color:var(--blue)}
+.metric .m-sub{font-size:11.5px;color:var(--muted);line-height:1.5}
+.metric-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+.cal li{list-style:none;display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;align-items:start}
+.cal .d{font-weight:800;color:var(--navy);font-size:14px;background:var(--bg);border-radius:8px;text-align:center;padding:6px 4px}
+.cal .d.hot{background:var(--accent-soft);color:var(--accent)}
+
+.colophon{background:var(--navy-deep);color:#AAB9CC;margin-top:80px;padding:64px 24px 48px}
+.colophon .wrap{max-width:760px}
+.colophon h4{color:#fff;font-size:15px;letter-spacing:.1em;margin-bottom:18px}
+.colophon p{font-size:13.5px;line-height:1.9}
+.colophon .next{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:22px 26px;margin:30px 0}
+.colophon .next .nx-lab{font-size:11.5px;letter-spacing:.18em;color:#F0A583;font-weight:700}
+.colophon .next .nx-title{font-size:19px;font-weight:800;color:#fff;margin-top:8px}
+.colophon .next p{color:#93A5BB;margin-top:6px}
+.colophon .foot{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:22px;font-size:12px;color:#6D7F96;display:flex;flex-wrap:wrap;gap:6px 24px}
+details.srcbox{margin-top:26px}
+details.srcbox summary{cursor:pointer;font-size:13px;color:#8FA3BC;letter-spacing:.06em}
+details.srcbox ul{margin:14px 0 0 2px}
+details.srcbox li{list-style:none;font-size:12.5px;line-height:2}
+details.srcbox a{color:#7FA8D9;text-decoration:none}
+
+.fig{margin:24px 0 6px}
+.fig svg{width:100%;height:auto;display:block}
+.figcap{font-size:12px;color:var(--muted);margin-top:10px;text-align:center;letter-spacing:.02em}
+.fig text{font-family:inherit}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.reveal-in{opacity:1;transform:none}
+
+@media (max-width:640px){
+  .card,.fabnote{padding:26px 20px 22px}
+  .three-item{grid-template-columns:44px 1fr;gap:12px}
+  .three-num{font-size:30px}
+  .ticker li{grid-template-columns:1fr;gap:2px}
+  .metrics{grid-template-columns:1fr}
+}
+@media print{
+  #gauge,.scrollcue{display:none}
+  .hero-inner{min-height:auto;padding:40px 0}
+  .card{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div id="gauge"></div>
+
+<!-- ================= 히어로 ================= -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker"><span class="dot"></span>공정한 시선 &nbsp;·&nbsp; 工程의 눈으로 읽는 반도체 위클리 &nbsp;·&nbsp; 4호</div>
+    <h1>숫자는 뜨겁고,<br>시장은 <span class="em">식었다</span></h1>
+    <p class="deck">TSMC는 사상 최대 분기를 찍고 연간 전망을 40%+로 올렸다. ASML은 어닝서프라이즈에 가이던스를 대폭 상향했다. 그런데 같은 주, 필라델피아 반도체지수는 고점 대비 -20% — 약세장에 진입했다. 실적이 정점이라는 말과 주가가 정점이라는 말은 다른 문장이라는 것을, 이번 주가 보여줬다.</p>
+    <div class="meta">
+      <span><b>발행</b> 2026. 7. 20.(월)</span>
+      <span><b>글로벌 신호 확인</b> 2026년 7월 20일 자</span>
+      <span><b>읽는 시간</b> 약 10분</span>
+    </div>
+    <div class="scrollcue">SCROLL ▾</div>
+  </div>
+</header>
+
+<!-- ================= 핵심 3줄 ================= -->
+<section class="block three">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">15초 요약</span><span class="sec-title">이번 주 핵심 3줄</span></div>
+    <div class="sec-desc">여기까지만 읽어도 이번 주는 따라갑니다.</div>
+    <div class="three-item reveal"><div class="three-num">1</div><div class="three-txt">TSMC 사상 최대 분기(매출 402억 달러, +36%) + 연간 성장 전망 40%+로 상향 — AI 수요는 실물이다.<small>CapEx도 최대 640억 달러로 상향 · HPC가 웨이퍼 매출의 66%</small></div></div>
+    <div class="three-item reveal"><div class="three-num">2</div><div class="three-txt">그런데 SOX는 6월 고점 대비 -20%, 약세장 진입(7/17) — "105% 랠리의 피로"가 실적 서프라이즈를 눌렀다.<small>SKHY도 원주 -15% 폭락 → ADR +27% 반등의 롤러코스터</small></div></div>
+    <div class="three-item reveal"><div class="three-num">3</div><div class="three-txt">ASML 어닝서프라이즈, 연 매출 가이던스 430~450억 유로로 대폭 상향 — High-NA EUV는 인텔 양산 투입.<small>신규 노광기 분기 86대(+28%) · 장비까지 초호황 확인</small></div></div>
+  </div>
+</section>
+
+<!-- ================= 01 글로벌 헤드라인 ================= -->
+<section class="block" id="global">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">글로벌 헤드라인</span></div>
+    <div class="sec-desc">사실은 짧게, 해석은 깊게. 각 카드의 <b style="color:var(--accent)">So what?</b>이 이 브리핑의 본론입니다.</div>
+
+    <article class="card reveal">
+      <span class="tag">파운드리 × 실적 <span class="lastweek">지난 호 후속</span></span>
+      <h3>TSMC의 온도계는 뜨거웠다 — 사상 최대 분기, 연간 전망 40%+</h3>
+      <div class="takeaway">◆ 지난 호의 질문("온도계")에 대한 답: 실물 수요는 진짜다</div>
+      <p class="facts">TSMC가 2분기 매출 402억 달러(+36% YoY), 순이익 7,066억 대만달러(+77%)로 사상 최대 분기를 기록했다(7.16). 총마진 67.7%, HPC(AI 가속기 포함)가 웨이퍼 매출의 66%, 3nm(N3)가 30%를 차지했다. 연간 달러 매출 성장 전망을 기존 30%+에서 40%+로 올렸고, CapEx도 최대 640억 달러로 상향, 애리조나에 1,000억 달러 추가 투자를 약속했다.</p>
+      <div class="callout biz"><span class="lab">So what?</span>지난 호에서 TSMC 실적을 '파운드리 사이클의 공식 온도계'라 불렀다 — 온도계는 뜨거웠다. 주목할 것은 성장률보다 구성이다: HPC 66%는 이제 파운드리가 스마트폰 회사가 아니라 AI 인프라 회사라는 뜻이고, CapEx 상향은 공급자가 자기 돈으로 수요 지속에 베팅했다는 가장 강한 신호다. 메모리 관점에서도 좋은 소식이다 — TSMC의 AI 가속기 웨이퍼가 늘어나는 만큼 HBM 수요도 기계적으로 따라온다.</div>
+      <div class="src">출처: <a href="https://www.tradingkey.com/analysis/stocks/more/262034508-tsmc-q2-earnings-beat-expectations-raises-full-year-outlook-tradingkey" target="_blank" rel="noopener">TradingKey(7.16)</a> · <a href="https://www.techtimes.com/articles/320696/20260716/tsmc-posts-record-quarter-ai-chip-demand-pushes-full-year-growth-outlook-past-40.htm" target="_blank" rel="noopener">TechTimes(7.16)</a> · <a href="https://www.investing.com/news/company-news/tsmc-q2-2026-slides-ai-demand-drives-record-margins-hpc-surges-20-93CH-4794789" target="_blank" rel="noopener">Investing.com</a></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="tag">시장 × 약세장</span>
+      <h3>SOX 약세장 진입 — 최고 실적의 주에 -20%가 확정됐다</h3>
+      <div class="takeaway">◆ 실적이 정점이라는 말과 주가가 정점이라는 말은 다르다</div>
+      <p class="facts">필라델피아 반도체지수(SOX)가 7월 17일 11,673.89로 마감하며 6월 말 사상 최고점 대비 -20%, 기술적 약세장에 진입했다. 블룸버그는 "105% AI 랠리가 식어간다"고 표현했다(7.17). SK하이닉스도 롤러코스터를 탔다 — 13일 원주가 2분기 실적 전망 하회 보고서(컨센서스 65조 원 대비 -8%)에 -15.4% 폭락했다가, 14일 바클레이즈 커버리지 개시(목표가 330달러)와 손정의 회장의 "연 5조 달러 AI 투자" 발언에 ADR이 +27% 반등했다. ADR 프리미엄은 한때 51%까지 벌어졌다가 26%로 축소됐다(7.15 기준, 보도).</p>
+      <div class="callout biz"><span class="lab">So what?</span>실물과 가격의 괴리가 이번 주의 본질이다. 실물(완판, CapEx 상향, 사상 최대 실적)은 여전히 뜨거운데, 주가는 "이미 다 반영했다"고 말하기 시작했다. 3호의 과수원 비유로 돌아가면 — 실물 공급 부족은 팹 시차 때문에 2027년까지 구조적으로 잠겨 있지만, 주가는 그 2027년을 이미 사서 들고 있었던 것이다. SKHY 프리미엄 51%는 유동성 왜곡의 크기를 보여줬고, 7월 29일 원주-ADR 양방향 전환이 허용되면 차익거래가 이 괴리를 빠르게 좁힐 것이다 — 다음 호의 관전 포인트. <i>(필자 해석)</i></div>
+      <div class="src">출처: <a href="https://www.bloomberg.com/news/articles/2026-07-17/chips-stocks-tumble-into-bear-market-as-105-ai-rally-fizzles" target="_blank" rel="noopener">Bloomberg(7.17)</a> · <a href="https://www.tradingkey.com/kr/analysis/stocks/us-stocks/262028846-skhy-nvda-samsung-skhynix-adr-dram-mu-spcx-sndk-tradingkey" target="_blank" rel="noopener">TradingKey</a> · <a href="https://kr.investing.com/news/stock-market-news/article-2015570" target="_blank" rel="noopener">Investing.com(프리미엄 51%)</a></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="tag">장비 × EUV <span class="lastweek">지난 호 후속</span></span>
+      <h3>ASML 어닝서프라이즈 — 가이던스 대폭 상향, High-NA는 인텔 양산 투입</h3>
+      <div class="takeaway">◆ EUV 수주는 CapEx 전쟁의 선행지표 — 지표가 급등했다</div>
+      <p class="facts">ASML이 2분기 매출 93.3억 유로(전망 88억 상회), 순이익 29.2억 유로를 발표했다(7.15). 신규 노광기 판매는 86대로 전분기(67대) 대비 +28%. 연간 매출 가이던스를 기존 360~400억 유로에서 430~450억 유로로 대폭 올렸고, 차세대 High-NA EUV가 인텔에서 양산 용도로 사용되기 시작했다고 밝혔다.</p>
+      <div class="callout biz"><span class="lab">So what?</span>지난 호 캘린더에 쓴 그대로 — EUV 수주는 팹 CapEx의 선행지표다. 가이던스 +19%(중간값 기준) 상향은 TSMC·삼성·SK하이닉스·인텔이 향후 2~3년 캐파에 그만큼 베팅했다는 집계표다. High-NA의 인텔 양산 투입은 상징성이 크다 — 1.4nm급 세대의 개막 신호이고, 2호에서 다룬 'EUV는 이사'라는 관점에서 보면 High-NA 도입 경쟁은 이미 시작됐다. 시장이 약세장(헤드라인 2)이라 해도 장비 발주는 다른 시계로 움직인다는 것, 이것이 이번 주 실물의 증언이다.</div>
+      <div class="src">출처: <a href="https://www.asml.com/en/investors/financial-results/q2-2026" target="_blank" rel="noopener">ASML 공식 IR</a> · <a href="https://www.sedaily.com/article/20068212" target="_blank" rel="noopener">서울경제(7.15)</a> · <a href="https://kr.investing.com/news/earnings/article-2015712" target="_blank" rel="noopener">Investing.com</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 인용 ================= -->
+<div class="pull wrap reveal">
+  <blockquote>"주가는 2027년을 미리 사서<br><span>들고 있었던 것이다</span>"</blockquote>
+  <div class="who">— 이번 주 글로벌 헤드라인의 결론</div>
+</div>
+
+<!-- ================= 02 K-클러스터 레이더 ================= -->
+<section class="block radar-band" id="radar">
+  <div class="wrap" style="padding-bottom:56px">
+    <div class="radar-head" style="margin-bottom:30px">
+      <div class="scope" aria-hidden="true">
+        <span class="blip" style="top:22%;left:58%"></span>
+        <span class="blip" style="top:55%;left:30%"></span>
+        <span class="blip" style="top:68%;left:62%"></span>
+      </div>
+      <div>
+        <div class="sec-head" style="margin-bottom:4px"><span class="sec-num green">02</span><span class="sec-title">K-클러스터 레이더</span></div>
+        <div class="sec-desc">한국 반도체 투자·클러스터의 이번 주 움직임. <b style="color:var(--accent)">기업 시사점</b>과 <b style="color:var(--policy)">정책 시사점</b>만 읽어도 됩니다.</div>
+      </div>
+    </div>
+
+    <article class="card reveal">
+      <span class="tag">인프라 · 전력망 <span class="lastweek">지난 호 후속</span></span>
+      <h3>"클러스터의 운명은 송전망에 달렸다" — 용인은 장거리, 서남권은 지산지소</h3>
+      <div class="takeaway green">◆ 1호부터 쓴 문장이 정부의 고민이 됐다: 병목은 팹이 아니라 인프라다</div>
+      <p class="facts">용인과 서남권 두 초대형 클러스터의 전력 확보 방안을 두고 정부 고심이 깊어지고 있다는 보도가 나왔다(7.19). 용인은 원거리 발전소에서 끌어오는 장거리 송전망 확충이, 서남권은 한빛원전·재생에너지에 LNG 전환분까지 더한 지산지소(地産地消·현지 생산-현지 소비)형 공급이 각각의 해법으로 거론된다. 송전망 건설 속도가 두 클러스터 모두의 관건이라는 지적이다.</p>
+      <div class="callout policy"><span class="lab">정책 시사점</span>입지 논쟁이 완전히 에너지 논쟁으로 전환됐다 — 창간호부터 쓴 "병목은 팹이 아니라 인프라"가 이제 정부 문서의 언어가 된 셈이다. 두 모델의 대비가 흥미롭다: 용인의 장거리 송전은 주민 수용성과 공기(공사 기간)가, 서남권의 지산지소는 발전원 구성(원전+재생+LNG)의 안정성이 각각 약점이다. 향후 클러스터 정책의 성패 지표는 팹 착공 건수가 아니라 송전망 착공 킬로미터로 읽는 것이 정확할 것이다. <i>(필자 해석)</i></div>
+      <div class="src">출처: <a href="https://www.fnnews.com/news/202607191820585123" target="_blank" rel="noopener">파이낸셜뉴스(7.19)</a></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="tag">용인 · 정주 여건</span>
+      <h3>용인 클러스터 첫 아파트, 8월 분양 — 산단이 도시가 되기 시작했다</h3>
+      <div class="takeaway">◆ 인력 유치의 실전은 통근버스가 아니라 학군과 병원이다</div>
+      <p class="facts">총 960조 원 규모로 조성 중인 용인 반도체클러스터 산업단지 안에서 처음으로 분양하는 아파트가 8월 나온다. SK하이닉스 생산시설과 소부장 협력업체 산단에 인접한 입지다(7.10).</p>
+      <div class="callout biz"><span class="lab">기업 시사점</span>클러스터 인력 전쟁(지난 호 한 줄 동향 참조)의 승부처는 결국 정주 여건이다. 기흥·화성 세대가 판교에서 통근하는 동안, 용인 신도시가 학군·병원·상권을 갖추는 속도가 소부장 기업들의 채용 경쟁력까지 결정한다. 협력사 입장에서는 사택·주거 지원 설계를 분양 일정에 맞춰 준비할 타이밍이다.</div>
+      <div class="src">출처: <a href="https://news.bizwatch.co.kr/article/real_estate/2026/07/10/0008" target="_blank" rel="noopener">비즈워치(7.10)</a></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="tag">증설 · 전망</span>
+      <h3>공급 부족이 용인 시계를 당긴다 — "증설 속도 예상보다 빨라질 수도"</h3>
+      <div class="takeaway">◆ 슈퍼사이클이 클러스터 일정의 변수가 되는 되먹임 구조</div>
+      <p class="facts">반도체 공급이 수요를 못 따라가는 호황이 이어지면서, 삼성전자·SK하이닉스의 용인 증설 속도가 당초 계획보다 빨라질 수 있다는 전망이 나온다(보도).</p>
+      <div class="callout biz"><span class="lab">기업 시사점</span>1호(용인 12월 착공 목표)→2호(P5 조기 착공)→이번 주까지, '일정 단축' 뉴스가 3주 연속이다. 발주 사이클에 올라타는 소부장의 시계도 그만큼 당겨진다 — 다만 전력망(위 카드)이 따라오지 못하면 완공된 팹이 대기하는 시나리오도 있다는 점은 리스크로 함께 봐야 한다.</div>
+      <div class="src">출처: <a href="https://www.fnnews.com/news/202607131812189345" target="_blank" rel="noopener">파이낸셜뉴스(7.13)</a> 외</div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 03 논문에서 온 신호 ================= -->
+<section class="block" id="paper">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">논문에서 온 신호</span></div>
+    <div class="sec-desc">뉴스보다 2~3년 빠른 이야기 — 이번 주는 AI 데이터센터의 다음 병목, '빛'입니다.</div>
+
+    <article class="card paper-card reveal">
+      <span class="tag">arXiv · 광 인터커넥트</span>
+      <h3>전기가 막히는 곳에 빛이 들어온다 — 3D 광 인터포저와 CPO의 진격</h3>
+      <div class="takeaway">◆ 패키징의 다음 격전지는 구리 배선이 아니라 광도파로다</div>
+      <p class="facts">고밀도 광 연결을 위한 3D 실리콘나이트라이드 광 인터포저 연구가 arXiv에 공개됐다 — 여러 층의 광도파로를 쌓아 칩 간 연결 밀도를 끌어올리는 구조다. 업계에서는 "5년 내 AI 데이터센터의 모든 인터커넥트가 광으로 간다"는 전망이 나오고, 광엔진을 스위치 칩 옆에 직접 붙이는 CPO(Co-Packaged Optics)는 2026년을 파일럿 성숙과 표준 논의의 해로 보고 있다. NVIDIA는 이미 CPO 기반 스위치 플랫폼을 발표했고 TSMC의 3D 패키징 기술이 그 기반이다.</p>
+
+      <div class="timeline" aria-label="광 인터커넥트 타임라인">
+        <div class="tl-node"><span class="yr">~2024</span><div class="lb">플러거블 광모듈</div><div class="st">보드 가장자리</div></div>
+        <div class="tl-bar"></div>
+        <div class="tl-node now"><span class="yr">2026 지금</span><div class="lb">CPO 파일럿</div><div class="st">스위치 옆 광엔진·표준 논의</div></div>
+        <div class="tl-bar"></div>
+        <div class="tl-node"><span class="yr">~2029</span><div class="lb">광 인터포저</div><div class="st">패키지 내부로</div></div>
+        <div class="tl-bar"></div>
+        <div class="tl-node"><span class="yr">2030s</span><div class="lb">칩 간 광 IO</div><div class="st">업계 전망</div></div>
+      </div>
+
+      <div class="callout biz"><span class="lab">이것이 의미하는 것</span>AI 클러스터의 병목이 연산에서 통신으로 옮겨가고 있다 — GPU가 아무리 빨라도 GPU끼리 주고받는 구리 배선의 대역폭과 전력 소모가 천장이 되는 것이다. 빛은 이 천장을 걷어내는 대신 새로운 공정 문제를 가져온다: 광도파로의 손실 관리, 레이저 광원의 열, 그리고 광학 부품을 반도체 패키징 수율로 붙이는 정렬(alignment) 문제 — 본질적으로 소재·패키징 공학의 싸움이다. 한국 관점의 포인트는 두 가지. ①이 흐름은 유리 기판(1·2호 참조)과 만난다 — 유리는 광도파로를 새기기 좋은 재료라 글라스 기판 경쟁이 광 패키징 경쟁으로 이어질 수 있다. ②HBM 다음의 고부가 패키징 아이템을 찾는 국내 OSAT·소재 기업에게 광 정렬·본딩은 5년 시계의 신규 시장이다. <i>(필자 해석)</i></div>
+      <div class="src">출처: <a href="https://arxiv.org/pdf/2604.12566" target="_blank" rel="noopener">arXiv: 3D SiN Photonic Interposer</a> · <a href="https://semiengineering.com/all-ai-data-center-interconnects-will-be-optical-within-5-years/" target="_blank" rel="noopener">Semiconductor Engineering</a> · <a href="https://www.edn.com/where-co-packaged-optics-cpo-technology-stands-in-2026/" target="_blank" rel="noopener">EDN: CPO in 2026</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= 04 공정 한 컷 ================= -->
+<section class="block" id="fabnote">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">공정 한 컷</span></div>
+    <div class="sec-desc">전직 팹 엔지니어의 시선으로, 매호 용어 하나를 현장의 언어로 풉니다.</div>
+
+    <div class="fabnote reveal">
+      <div class="fn-lab">FAB NOTE · 4호</div>
+      <h3>CoWoS가 뭐길래 — TSMC 실적 콜마다 등장하는 그 패키징</h3>
+      <p>TSMC 실적 발표 때마다 CoWoS(Chip-on-Wafer-on-Substrate)라는 단어가 등장한다. AI 가속기의 표준 조립법이 된 2.5D 패키징인데, 원리는 좌석 배치도에 가깝다 — GPU와 HBM 여러 개를 실리콘 인터포저라는 커다란 '식탁' 위에 나란히 앉히고, 식탁 밑에 새겨진 미세 배선으로 서로 대화하게 하는 구조다. 겉보기엔 조립인데 왜 병목이 되냐면, 이 식탁 자체가 반도체 공정으로 만드는 물건이기 때문이다. 인터포저는 웨이퍼에서 잘라내는데 GPU+HBM 조합이 커질수록 식탁도 커져야 하고, 커질수록 한 장의 웨이퍼에서 나오는 식탁 수는 줄고 휨과 수율 문제는 커진다. AI 칩이 '슈퍼 사이즈' 경쟁을 하는 지금, 병목은 GPU 웨이퍼가 아니라 식탁 공급이었던 때가 많았다 — TSMC가 실적 콜에서 CoWoS 캐파를 따로 답하는 이유다. 그리고 이번 호 논문 신호(광 인터포저)는 이 식탁의 다음 버전 이야기다: 배선 대신 빛이 지나가는 식탁.</p>
+      <div class="fn-tail">— 이 코너는 필자의 공정 경험에 기반한 개념 해설로, 특정 기업의 현행 공정 세부와 다를 수 있습니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 이번 주 지표 ================= -->
+<section class="block" id="metrics">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">이번 주 지표</span></div>
+    <div class="sec-desc">시장의 온도를 숫자 세 개로.</div>
+    <div class="metrics reveal">
+      <div class="metric">
+        <div class="m-lab">필라델피아 반도체지수</div>
+        <div class="m-val down">11,674</div>
+        <div class="m-sub">7.17 종가 · 전주(12,967) 대비 ▼10.0% · 6월 고점 -20% 약세장 진입</div>
+      </div>
+      <div class="metric">
+        <div class="m-lab">TSMC 연간 성장 전망</div>
+        <div class="m-val up">40%+</div>
+        <div class="m-sub">달러 매출 기준, 기존 30%+에서 상향 (7.16 실적 콜)</div>
+      </div>
+      <div class="metric">
+        <div class="m-lab">SKHY ADR 프리미엄</div>
+        <div class="m-val">26%</div>
+        <div class="m-sub">최고 51%(7.14) → 26%(7.15, 보도) · 7/29 양방향 전환 예정</div>
+      </div>
+    </div>
+    <div class="metric-note">※ 전주 대비 추이는 자체 시계열(3호: SOX 12,967) 기준. 지수 수치는 집계 시점에 따라 달라질 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- ================= 06 다음 주 캘린더 ================= -->
+<section class="block" id="calendar">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">이번 주 캘린더</span></div>
+    <div class="sec-desc">다음 호에서 다루게 될 일정들.</div>
+    <ul class="cal reveal">
+      <li><span class="d">7월 4주</span><span>미국 빅테크 실적 시즌 본격화 — 하이퍼스케일러의 AI CapEx 발언이 약세장 논쟁의 다음 변수 (보도 기준)</span></li>
+      <li><span class="d hot">7월 말</span><span>삼성전자 2분기 확정실적 — 사업부별 이익 배분·HBM4 기여 공개 (3호 예고 유지)</span></li>
+      <li><span class="d hot">7월 말</span><span>SK하이닉스 2분기 실적 — 원주 폭락을 부른 '컨센서스 하회' 전망의 검증대 (보도 기준, 날짜 미정)</span></li>
+      <li><span class="d hot">7/29 (수)</span><span>SKHY 원주-ADR 양방향 전환 허용 — 26% 프리미엄의 해소 속도 관찰 (보도 기준)</span></li>
+      <li><span class="d">8월 초</span><span>용인 클러스터 첫 아파트 분양 (레이더 2 참조)</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 07 한 줄 동향 ================= -->
+<section class="block" id="ticker">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">한 줄 동향</span></div>
+    <div class="sec-desc">나머지 신호들, 한 줄씩만.</div>
+    <ul class="ticker reveal">
+      <li><b>장비</b><span>ASML 분기 신규 노광기 86대(+28% QoQ) — 장비 수주가 말하는 CapEx 전쟁 (헤드라인 3 참조).</span></li>
+      <li><b>노드</b><span>TSMC 매출에서 N3 30%·N5 33% — 첨단 노드가 이미 주력, 2nm 램프는 하반기 가속.</span></li>
+      <li><b>AI 투자</b><span>손정의 "2040년까지 연 5조 달러 AI 투자 필요" — 소프트뱅크 월드 발언, SKHY 반등의 방아쇠 (보도).</span></li>
+      <li><b>High-NA</b><span>인텔, High-NA EUV 양산 용도 사용 개시 — 1.4nm급 세대 경쟁의 개막 신호 (ASML 발표).</span></li>
+      <li><b>패키징</b><span>CPO 시장 2036년 200억 달러 전망(연 37% 성장, IDTechEx) — 논문 신호 참조.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 콜로폰 ================= -->
+<footer class="colophon">
+  <div class="wrap">
+    <h4>ABOUT THIS BRIEF</h4>
+    <p>「공정한 시선」은 반도체 공정 개발 현장을 거친 필자가 발행하는 주간 브리핑입니다. 글로벌 반도체 뉴스를 나열하는 대신 공정·소재의 눈(工程)으로 '왜'를 해설하고, 기업의 판단과 정책의 판단에 각각 필요한 시사점으로 번역하며(公正), 학회·논문에서 뉴스보다 2~3년 빠른 신호를 발굴합니다. 본 호는 발행일 기준 공개 뉴스·학회 발표·시장조사 자료의 교차 확인으로 제작되었습니다. (보도)·(추정) 표기 수치는 2차 보도 기반으로 원 자료 확인 전이며, '필자 해석'은 공개 정보에 대한 개인 견해입니다. 본 브리핑은 투자 권유가 아닙니다.</p>
+
+    <div class="next">
+      <div class="nx-lab">NEXT ISSUE — 다음 주 예고</div>
+      <div class="nx-title">양대 메모리의 성적표, 그리고 전환의 날</div>
+      <p>삼성 확정실적과 SK하이닉스 2분기 — 그리고 7월 29일, 26% 프리미엄은 얼마나 빨리 사라질까.</p>
+    </div>
+
+    <details class="srcbox">
+      <summary>전체 출처 목록 펼치기 (14건)</summary>
+      <ul>
+        <li><a href="https://www.tradingkey.com/analysis/stocks/more/262034508-tsmc-q2-earnings-beat-expectations-raises-full-year-outlook-tradingkey" target="_blank" rel="noopener">TSMC Q2 실적·전망 상향 — TradingKey(7.16)</a></li>
+        <li><a href="https://www.techtimes.com/articles/320696/20260716/tsmc-posts-record-quarter-ai-chip-demand-pushes-full-year-growth-outlook-past-40.htm" target="_blank" rel="noopener">TSMC 사상 최대 분기 — TechTimes(7.16)</a></li>
+        <li><a href="https://www.investing.com/news/company-news/tsmc-q2-2026-slides-ai-demand-drives-record-margins-hpc-surges-20-93CH-4794789" target="_blank" rel="noopener">TSMC HPC 66%·마진 기록 — Investing.com</a></li>
+        <li><a href="https://www.bloomberg.com/news/articles/2026-07-17/chips-stocks-tumble-into-bear-market-as-105-ai-rally-fizzles" target="_blank" rel="noopener">SOX 약세장 진입 — Bloomberg(7.17)</a></li>
+        <li><a href="https://finance.yahoo.com/quote/%5ESOX/" target="_blank" rel="noopener">SOX 종가 — Yahoo Finance</a></li>
+        <li><a href="https://www.tradingkey.com/kr/analysis/stocks/us-stocks/262028846-skhy-nvda-samsung-skhynix-adr-dram-mu-spcx-sndk-tradingkey" target="_blank" rel="noopener">SKHY 주가 변동 분석 — TradingKey</a></li>
+        <li><a href="https://kr.investing.com/news/stock-market-news/article-2015570" target="_blank" rel="noopener">ADR 프리미엄 51% — Investing.com/The Guru</a></li>
+        <li><a href="https://www.tradingkey.com/kr/analysis/stocks/us-stocks/262034593-nvda-samsung-skhynix-dram-mu-spcx-sndk-tradingkey" target="_blank" rel="noopener">ADR 프리미엄 축소·양방향 전환 — TradingKey(7.15)</a></li>
+        <li><a href="https://www.asml.com/en/investors/financial-results/q2-2026" target="_blank" rel="noopener">ASML Q2 실적 — 공식 IR(7.15)</a></li>
+        <li><a href="https://www.sedaily.com/article/20068212" target="_blank" rel="noopener">ASML 어닝서프라이즈 — 서울경제(7.15)</a></li>
+        <li><a href="https://www.fnnews.com/news/202607191820585123" target="_blank" rel="noopener">클러스터 송전망 확충 — 파이낸셜뉴스(7.19)</a></li>
+        <li><a href="https://news.bizwatch.co.kr/article/real_estate/2026/07/10/0008" target="_blank" rel="noopener">용인 클러스터 첫 아파트 — 비즈워치(7.10)</a></li>
+        <li><a href="https://arxiv.org/pdf/2604.12566" target="_blank" rel="noopener">3D SiN 광 인터포저 — arXiv</a></li>
+        <li><a href="https://semiengineering.com/all-ai-data-center-interconnects-will-be-optical-within-5-years/" target="_blank" rel="noopener">광 인터커넥트 전망 — Semiconductor Engineering</a></li>
+      </ul>
+    </details>
+
+    <div class="foot">
+      <span>공정한 시선 4호</span>
+      <span>발행인: (이름) · 구독: (뉴스레터 주소)</span>
+      <span>발행 2026. 7. 20. · 글로벌 신호 확인 2026년 7월 20일 자</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const gauge = document.getElementById('gauge');
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  gauge.style.width = (p * 100).toFixed(2) + '%';
+}, {passive:true});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
